@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business Feature List"
+  short_description: "Generate customer-facing business feature lists"
+  default_prompt: "Create a customer-facing business feature list for this product."
