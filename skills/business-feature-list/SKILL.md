@@ -71,6 +71,12 @@ Use fast repo search (`rg`, `find`, `rg --files`) and read representative files.
 8. **Prune low-value items**
    - Remove technical stack, plumbing, legal pages, basic account operations, and UI mechanics unless they are the product being sold.
 
+9. **Gate pricing-sensitive claims**
+   - Treat pricing, plans, credits, billing, quotas, limits, usage fees, trial allowances, and upgrade rights as confirmation-sensitive.
+   - Only include them when the user provides explicit source material or asks to include pricing/monetization capabilities.
+   - If evidence exists but may be unstable or disputed, write “需确认” or move the item to a separate “待确认商业规则” section.
+   - Never invent prices, plan names, credit amounts, included quotas, or upgrade rules from code names alone.
+
 ## Classification Methods
 
 Use one or combine several depending on the product.
@@ -211,6 +217,26 @@ Merge when the item is a UI affordance or sub-control:
 - Login/logout/session persistence unless authentication is part of the product's sold capability.
 - Internal API wrappers, interceptors, token storage mechanics.
 - One-off implementation details not visible to customers.
+- Pricing, credits, billing, quotas, and plan entitlements unless confirmed by current product/pricing source or explicitly requested by the user.
+
+## Pricing-Sensitive Content
+
+Pricing and commercial entitlements are high-risk because they change often and can create customer-facing disputes.
+
+Default handling:
+
+- Do not include pricing rows in the main feature list unless the user explicitly wants them.
+- If included, describe the capability without amounts unless the source is explicit.
+- Use “需确认” for any uncertain plan, quota, credit, billing, or price claim.
+- Prefer “用量与成本可视化” over detailed “套餐与升级” unless pricing is confirmed.
+
+Examples:
+
+| Evidence | Safer phrasing |
+|---|---|
+| Code has `CreditsLedger` | “支持查看 Credits 使用流水（具体计费规则需确认）。” |
+| Pricing UI has plan names but no confirmed commercial copy | “提供套餐展示与升级入口（套餐权益和价格需确认）。” |
+| Current official pricing page provided by user | “按用户提供的价格页整理套餐和额度。” |
 
 ## Description Writing Pattern
 
@@ -265,6 +291,7 @@ Before finalizing, check:
 - Does every row describe buyer value, not implementation?
 - Are categories mutually understandable and not just repo folders?
 - Are broad platform capabilities represented: data, runtime, integrations, observability, analytics, billing, security if applicable?
+- Are pricing/plan/credits/billing claims either confirmed or marked as “需确认”?
 - Are examples concrete where ambiguity would hurt?
 - Did you remove padding and low-sales-value basics?
 
@@ -273,5 +300,6 @@ Before finalizing, check:
 - If the user says "太泛了": add supported types/providers/scenarios to descriptions.
 - If the user says "太细了": merge UI subfeatures into capability rows.
 - If the user says "这不是功能": remove plumbing/legal/basic account operations.
+- If the user flags pricing, plans, credits, or billing as disputed: remove from the main list or mark "需确认".
 - If the user provides a competitor list: learn its category style, then adapt to the product's actual capabilities.
 - If source evidence is code-heavy: translate routes/API/components into business nouns before writing the table.
