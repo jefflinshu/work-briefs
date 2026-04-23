@@ -1,0 +1,4 @@
+interface:
+  display_name: "Extract Product Prompt"
+  short_description: "Reverse-engineer a local app into a product implementation prompt"
+  default_prompt: "Extract a concise implementation prompt from this local product."
