@@ -51,6 +51,24 @@ Exports all Details panels from an existing Lovable conversation into one Markdo
 
 Requires an authenticated browser session accessible to the agent. Browser collection follows the skill workflow; the Python script formats already captured JSON. This exports product-visible records, not hidden backend reasoning or orchestration logs.
 
+### `golden-case-miner`
+
+Turns real projects, agent traces, feedback, and supporting evidence into a reusable Golden Case Roster for evaluation and regression testing.
+
+- Defines each case with Spec, Skill, Tool, Expected Trace, and Eval.
+- Separates requested, generated, executed, observed, and verified behavior.
+- Scores evidence quality, reproducibility, diagnostic value, and coverage.
+- Evaluates observable results and actions, with explicit failure attribution.
+
+### `designing-business-app-seo-geo`
+
+Defines SEO/GEO strategy for AI app builders and business-app templates, starting from business jobs and search intent.
+
+- Organizes queries into mature SaaS, build/custom, and AI/no-code intent.
+- Connects query validation to template priorities and landing-page architecture.
+- Covers category, industry, template, problem, capability, and comparison pages.
+- Measures the funnel from discovery through activation and revenue.
+
 ## Repository Structure
 
 ```text
@@ -68,6 +86,14 @@ skills/
     agents/openai.yaml
     references/browser-capture.md
     scripts/render_details.py
+
+  golden-case-miner/
+    SKILL.md
+    agents/openai.yaml
+
+  designing-business-app-seo-geo/
+    SKILL.md
+    agents/openai.yaml
 ```
 
 Each skill is intentionally small:
@@ -122,6 +148,14 @@ Use business-feature-list to create a customer-facing feature list from this cod
 
 ```text
 Use lovable-details-export to save all Details from the current Lovable conversation into one Markdown file.
+```
+
+```text
+Use golden-case-miner to turn these project traces and feedback into reproducible evaluation cases.
+```
+
+```text
+Use designing-business-app-seo-geo to plan search-intent clusters, landing pages, and business-app template priorities.
 ```
 
 The skills are designed to work best when the agent has access to the local project files or the source material you want it to inspect.

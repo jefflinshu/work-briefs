@@ -1,0 +1,4 @@
+interface:
+  display_name: "Golden Case Miner"
+  short_description: "Mine reproducible golden cases from real agent evidence"
+  default_prompt: "Use $golden-case-miner to turn these projects and traces into a reusable Golden Case Roster."

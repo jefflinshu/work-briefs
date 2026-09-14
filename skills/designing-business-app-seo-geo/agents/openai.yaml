@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business App SEO/GEO"
+  short_description: "Plan business-app search intent, pages, and templates"
+  default_prompt: "Use $designing-business-app-seo-geo to define query clusters, landing pages, and template priorities for this product."
