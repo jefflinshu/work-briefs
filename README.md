@@ -40,6 +40,17 @@ Use it when you need:
 
 This skill is especially useful for AI products because it checks the actual generation behavior: user inputs, modes, scenarios, tone rules, output schema, and sample prompt behavior.
 
+### `lovable-details-export`
+
+Exports all Details panels from an existing Lovable conversation into one Markdown file, preserving displayed thoughts, SQL, commands, event order, and code diffs.
+
+- Handles virtualized timelines and repeated event titles.
+- Extracts original diff text from the page's copyable code blocks.
+- Includes a Python standard-library renderer that checks inventory coverage and missing content.
+- Guides targeted credential redaction before saving captures.
+
+Requires an authenticated browser session accessible to the agent. Browser collection follows the skill workflow; the Python script formats already captured JSON. This exports product-visible records, not hidden backend reasoning or orchestration logs.
+
 ## Repository Structure
 
 ```text
@@ -51,12 +62,19 @@ skills/
   extract-product-prompt/
     SKILL.md
     agents/openai.yaml
+
+  lovable-details-export/
+    SKILL.md
+    agents/openai.yaml
+    references/browser-capture.md
+    scripts/render_details.py
 ```
 
 Each skill is intentionally small:
 
 - `SKILL.md` contains the workflow and quality gates.
 - `agents/openai.yaml` contains UI metadata for skill discovery.
+- Optional `references/` and `scripts/` hold capture procedures and reusable processing helpers.
 
 ## Design Principles
 
@@ -100,6 +118,10 @@ Use extract-product-prompt on this local project and give me a concise MVP imple
 
 ```text
 Use business-feature-list to create a customer-facing feature list from this codebase and README.
+```
+
+```text
+Use lovable-details-export to save all Details from the current Lovable conversation into one Markdown file.
 ```
 
 The skills are designed to work best when the agent has access to the local project files or the source material you want it to inspect.

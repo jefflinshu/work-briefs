@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lovable Details 导出"
+  short_description: "将 Lovable 会话的全部 Details 原文合并导出为 Markdown"
+  default_prompt: "使用 $lovable-details-export，把当前 Lovable 会话的全部 Details 导出为一个 Markdown。"
